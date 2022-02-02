@@ -1,25 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/Board.css";
 import O from "../component/O.jsx";
 import X from "../component/X.jsx";
 
 const Board = () => {
-	const myBoard = [
-		["1", "2", "3"],
-		["4", "5", "6"],
-		["7", "8", "9"],
-	];
+	const [myBoard, setMyBoard] = useState([
+		[undefined, undefined, undefined],
+		[undefined, undefined, undefined],
+		[undefined, undefined, undefined],
+	]);
 	return (
 		<>
 			<table>
 				<tbody>
-					{myBoard.map((item, i) => {
-						item.map((val, j) => {
-							<tr key={i}>
-								<td key={val}>{`${j}`}</td>
-							</tr>;
-						});
-					})}
+					{myBoard.map((row) => (
+						<tr>
+							{row.map((column) => (
+								<td>{column}</td>
+							))}
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</>

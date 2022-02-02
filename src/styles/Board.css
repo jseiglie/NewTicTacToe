@@ -1,5 +1,24 @@
 table {
-    border: 3px solid greenyellow;
+    border: 3px solid purple;
     padding: 4em;
     font-size: 20pt;
+    box-shadow: 0px 8px 80px 10px blue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    background-color: black;
+    
+
+}
+
+tr {
+    padding: 2em;
+    border: 3px solid purple;
+    
+}
+
+td {
+    padding: 2em;
+    border: 3px solid rgb(126, 29, 126);
+    
 }
