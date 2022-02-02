@@ -7,18 +7,21 @@ table {
     margin-right: auto;
     margin-top: 3em;
     background-color: black;
-    
-
+    width: 200px;  
 }
 
+.item {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 40pt;
+}
 tr {
-    padding: 2em;
+    padding: 1em;
     border: 3px solid purple;
-    
 }
 
 td {
     padding: 2em;
     border: 3px solid rgb(126, 29, 126);
-    
 }
