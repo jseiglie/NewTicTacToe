@@ -10,7 +10,7 @@ const Board = () => {
 		[undefined, undefined, undefined],
 	]);
 
-	const [turn, setTurn] = useState("x");
+	const [turn, setTurn] = useState(X);
 
 	const CheckRow = () => {
 		let i = 0;
@@ -36,35 +36,32 @@ const Board = () => {
 		}
 		console.log(!ctrl);
 		if (!ctrl == true) {
-			alert("winner");
+			alert("winner " + `${turn}`);
 		}
 		return !ctrl;
 	};
 	const CheckColumn = () => {
-		let i = 1;
+		let j = 0;
 		let ctrl = true;
-
-		while (ctrl && i < table.length) {
-			console.log(`i value: ${i}`);
+		while (ctrl && j < table.length) {
 			// recorrer columnas => buscar NO coincidencias
-			let j = 0;
+			let i = 1;
 			let ctrl2 = true;
-			while (ctrl2 && j < table[i].length) {
+			while (ctrl2 && i < table[j].length) {
 				if (
 					table[i][j] !== table[i - 1][j] ||
 					typeof table[i][j] === "undefined"
 				) {
 					ctrl2 = false;
 				} else {
-					j += 1;
+					i += 1;
 				}
 			}
 			ctrl = !ctrl2;
-			i += 1;
+			j += 1;
 		}
-		console.log(!ctrl);
 		if (!ctrl == true) {
-			alert("winner");
+			alert("winner " + `${turn}`);
 		}
 		return !ctrl;
 	};
@@ -75,7 +72,7 @@ const Board = () => {
 			table[1][1] == table[2][2] &&
 			typeof table[1][1] !== "undefined"
 		) {
-			alert("Winner");
+			alert("winner " + `${turn}`);
 		}
 	};
 
@@ -85,7 +82,7 @@ const Board = () => {
 			table[1][1] == table[2][0] &&
 			typeof table[1][1] !== "undefined"
 		) {
-			alert("Winner");
+			alert("winner " + `${turn}`);
 		}
 	};
 
@@ -96,15 +93,15 @@ const Board = () => {
 		CheckRightDiagonal();
 	};
 
-	const ChangeTurn = () => setTurn(turn === "x" ? "O" : "x");
+	const ChangeTurn = () => setTurn(turn == X ? O : X);
 
 	const SetValue = (i, j) => {
 		if (typeof table[i][j] === "undefined") {
 			const tmp = table;
 			tmp[i][j] = turn;
 			setTable(table);
-			ChangeTurn();
 			CheckWinner();
+			ChangeTurn();
 		} else {
 			alert("Already taken, try someplace else");
 		}
