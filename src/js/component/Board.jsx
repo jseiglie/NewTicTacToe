@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "../../styles/Board.css";
-import O from "../component/O.jsx";
-import X from "../component/X.jsx";
 
 const Board = () => {
 	const [table, setTable] = useState([
@@ -10,7 +8,7 @@ const Board = () => {
 		[undefined, undefined, undefined],
 	]);
 
-	const [turn, setTurn] = useState(X);
+	const [turn, setTurn] = useState("X");
 
 	const CheckRow = () => {
 		let i = 0;
@@ -93,7 +91,7 @@ const Board = () => {
 		CheckRightDiagonal();
 	};
 
-	const ChangeTurn = () => setTurn(turn == X ? O : X);
+	const ChangeTurn = () => setTurn(turn == "X" ? "O" : "X");
 
 	const SetValue = (i, j) => {
 		if (typeof table[i][j] === "undefined") {
